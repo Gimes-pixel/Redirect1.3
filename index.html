@@ -7,37 +7,39 @@
 </head>
 <body>
   <h1>Click the Button to Open D&D Beyond in a New Tab</h1>
-  <button onclick="openInNewTab('https://www.dndbeyond.com/')">Open D&D Beyond</button>
+  <button onclick="openInNewTab()">Open D&D Beyond</button>
 
   <script>
-    function openInNewTab(url) {
-      var win = window.open();
+    function openInNewTab() {
+      var url = 'https://www.dndbeyond.com/'; // URL to open in the iframe
+      var win = window.open(); // Open a new tab
+      
+      // Modify body styles
       win.document.body.style.margin = '0';
       win.document.body.style.height = '100vh';
 
       // Create and add a favicon (Google Docs Favicon)
       var icon = win.document.createElement('link');
       icon.rel = "shortcut icon";
-      icon.href = "https://ssl.gstatic.com/docs/doclist/favicon.ico"; // Google Docs Favicon URL
+      icon.href = "https://ssl.gstatic.com/docs/doclist/favicon.ico"; // Google Docs Favicon
       icon.type = "image/x-icon";
       win.document.head.appendChild(icon);
 
       // Create and add a title (Google Docs title)
       var title = win.document.createElement('title');
-      title.innerText = "Google Docs"; // Custom Tab Title
+      title.innerText = "Google Docs"; // Tab Title
       win.document.head.appendChild(title);
 
-      // Create and add an iframe with D&D Beyond URL
+      // Create and add an iframe for the D&D Beyond website
       var iframe = win.document.createElement('iframe');
       iframe.style.border = 'none';
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.margin = '0';
       iframe.id = 'content';
-      iframe.src = url; // D&D Beyond URL
+      iframe.src = url; // Set iframe's src to D&D Beyond
       win.document.body.appendChild(iframe);
     }
   </script>
 </body>
 </html>
-
