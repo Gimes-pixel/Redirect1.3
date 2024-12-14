@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Click the Button to Open in New Tab</h1>
-  <button onclick="openInNewTab('https://www.dndbeyond.com/characters')">Open Example</button>
+  <button onclick="openInNewTab('https://www.dndbeyond.com/characters')">Open</button>
 
   <script>
     function openInNewTab(url) {
@@ -18,7 +18,7 @@
       // Create and add a favicon
       var icon = win.document.createElement('link');
       icon.rel = "shortcut icon";
-      icon.href = "https://example.com/favicon.png"; // Replace with your tab icon URL
+      icon.href = "openInNewTab('https://docs.google.com/document/d/your-document-id');"; // Replace with your tab icon URL
       icon.type = "image/png";
       win.document.head.appendChild(icon);
 
