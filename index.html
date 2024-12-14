@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open in New Tab Demo</title>
+</head>
+<body>
+  <h1>Click the Button to Open in New Tab</h1>
+  <button onclick="openInNewTab('https://www.example.com')">Open Example</button>
+
+  <script>
+    function openInNewTab(url) {
+      var win = window.open();
+      win.document.body.style.margin = '0';
+      win.document.body.style.height = '100vh';
+
+      // Create and add a favicon
+      var icon = win.document.createElement('link');
+      icon.rel = "shortcut icon";
+      icon.href = "https://example.com/favicon.png"; // Replace with your tab icon URL
+      icon.type = "image/png";
+      win.document.head.appendChild(icon);
+
+      // Create and add a title
+      var title = win.document.createElement('title');
+      title.innerText = "Custom Tab Title"; // Replace with your desired tab title
+      win.document.head.appendChild(title);
+
+      // Create and add an iframe
+      var iframe = win.document.createElement('iframe');
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.margin = '0';
+      iframe.id = 'content';
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
